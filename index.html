@@ -274,21 +274,20 @@ body {
     margin-right: 0.5rem;
 }
 
-/* WhatsApp Button Styles - Mobile Optimized */
-/* WhatsApp Button Styles - Mobile Optimized */
+/* WhatsApp Button Styles - Fixed Positioning */
 #whatsapp-button {
     position: fixed;
-    bottom: 90px; /* sits above Botpress */
-    right: 16px;
-    width: 56px;
-    height: 56px;
+    bottom: 100px; /* Increased to be above Botpress */
+    right: 20px;
+    width: 60px;
+    height: 60px;
     background-color: #25D366;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
+    z-index: 10000; /* Much higher z-index */
     cursor: pointer;
     transition: all 0.3s ease;
     animation: pulse-whatsapp 2s infinite;
@@ -302,7 +301,7 @@ body {
 
 #whatsapp-button i {
     color: white;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 @keyframes pulse-whatsapp {
@@ -310,7 +309,7 @@ body {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
     }
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
@@ -320,17 +319,17 @@ body {
 /* WhatsApp Tooltip */
 #whatsapp-tooltip {
     position: fixed;
-    bottom: 156px; /* button bottom (90px) + button height (56px) + 10px margin */
-    right: 16px;
+    bottom: 170px; /* Adjusted position */
+    right: 20px;
     background-color: #075E54;
     color: white;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 14px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
-    z-index: 1000;
+    z-index: 10000; /* Same high z-index */
     white-space: nowrap;
 }
 
@@ -351,7 +350,6 @@ body {
         visibility: visible;
     }
 }
-
 
 /* Button Styles - Mobile Optimized */
 .btn-primary {
@@ -587,24 +585,6 @@ body {
         transform: translateY(-5px);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
-    
-    #whatsapp-button {
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    #whatsapp-button i {
-        font-size: 30px;
-    }
-    
-    #whatsapp-tooltip {
-        bottom: 90px;
-        right: 20px;
-        padding: 8px 12px;
-        font-size: 14px;
-    }
 }
 
 /* Large Desktop Styles (1200px and up) */
@@ -648,6 +628,23 @@ body {
         width: 50px;
         height: 50px;
     }
+    
+    /* Adjust WhatsApp button for landscape */
+    #whatsapp-button {
+        bottom: 80px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    #whatsapp-button i {
+        font-size: 24px;
+    }
+    
+    #whatsapp-tooltip {
+        bottom: 140px;
+        right: 15px;
+    }
 }
 
 /* Very small screens */
@@ -669,13 +666,33 @@ body {
     #whatsapp-button {
         width: 50px;
         height: 50px;
-        bottom: 12px;
-        right: 12px;
+        bottom: 90px;
+        right: 15px;
     }
     
     #whatsapp-button i {
         font-size: 24px;
     }
+    
+    #whatsapp-tooltip {
+        bottom: 150px;
+        right: 15px;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+/* Ensure WhatsApp button stays above Botpress */
+.bp-widget-widget {
+    z-index: 9999 !important; /* Ensure Botpress has lower z-index */
+}
+
+#whatsapp-button {
+    z-index: 10000 !important; /* Ensure WhatsApp has higher z-index */
+}
+
+#whatsapp-tooltip {
+    z-index: 10000 !important;
 }
     </style>
 </head>
@@ -1160,7 +1177,6 @@ body {
         </div>
     </footer>
 
-    
     <!-- WhatsApp Button -->
     <div id="whatsapp-button" title="Contact us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
@@ -1171,10 +1187,10 @@ body {
         // WhatsApp Button Functionality
         document.getElementById('whatsapp-button').addEventListener('click', function() {
             // Replace with your actual WhatsApp number (with country code, no + or spaces)
-            const whatsappNumber = '1234567890';
+            const whatsappNumber = '923001234567'; // Example Pakistan number
             
             // Replace with your pre-typed message
-            const message = 'Hello, I would like to know more about your services.';
+            const message = 'Hello Trust Link, I would like to know more about your real estate services.';
             
             // Create the WhatsApp URL
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
