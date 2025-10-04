@@ -275,11 +275,10 @@ body {
 }
 
 /* WhatsApp Button Styles - Fixed Positioning */
-/* WhatsApp Button Styles - Fixed Positioning */
 #whatsapp-button {
     position: fixed;
     bottom: 100px; /* Increased to be above Botpress */
-    right: 80px; /* Moved left from 20px to 80px */
+    right: 20px;
     width: 60px;
     height: 60px;
     background-color: #25D366;
@@ -321,7 +320,7 @@ body {
 #whatsapp-tooltip {
     position: fixed;
     bottom: 170px; /* Adjusted position */
-    right: 80px; /* Moved left to match button */
+    right: 20px;
     background-color: #075E54;
     color: white;
     padding: 8px 12px;
@@ -350,19 +349,6 @@ body {
         opacity: 1;
         visibility: visible;
     }
-}
-
-/* Ensure WhatsApp button stays above Botpress */
-.bp-widget-widget {
-    z-index: 9999 !important; /* Ensure Botpress has lower z-index */
-}
-
-#whatsapp-button {
-    z-index: 10000 !important; /* Ensure WhatsApp has higher z-index */
-}
-
-#whatsapp-tooltip {
-    z-index: 10000 !important;
 }
 
 /* Button Styles - Mobile Optimized */
