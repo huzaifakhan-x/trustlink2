@@ -275,9 +275,10 @@ body {
 }
 
 /* WhatsApp Button Styles - Mobile Optimized */
+/* WhatsApp Button Styles - Mobile Optimized */
 #whatsapp-button {
     position: fixed;
-    bottom: 90px; /* increased so it's above Botpress */
+    bottom: 90px; /* sits above Botpress */
     right: 16px;
     width: 56px;
     height: 56px;
@@ -301,7 +302,7 @@ body {
 
 #whatsapp-button i {
     color: white;
-    font-size: 28px; /* Slightly smaller icon */
+    font-size: 28px;
 }
 
 @keyframes pulse-whatsapp {
@@ -309,17 +310,17 @@ body {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); /* Smaller pulse on mobile */
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
     }
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
 }
 
-/* WhatsApp Tooltip - Hidden on mobile by default */
+/* WhatsApp Tooltip */
 #whatsapp-tooltip {
     position: fixed;
-    bottom: 156px; /* button bottom (90px) + button height (56px) + margin */
+    bottom: 156px; /* button bottom (90px) + button height (56px) + 10px margin */
     right: 16px;
     background-color: #075E54;
     color: white;
@@ -343,13 +344,14 @@ body {
     border-color: #075E54 transparent transparent transparent;
 }
 
-/* Only show tooltip on devices that support hover */
+/* Show tooltip on hover */
 @media (hover: hover) {
     #whatsapp-button:hover + #whatsapp-tooltip {
         opacity: 1;
         visibility: visible;
     }
 }
+
 
 /* Button Styles - Mobile Optimized */
 .btn-primary {
