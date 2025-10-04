@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Link - Building Trust in Real Estate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #c4b5fd;
+            --secondary: #0f172a;
+            --accent: #06b6d4;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+        
+        /* Theme Definitions */
+        .theme-dark-purple { 
+            --primary: #8b5cf6; 
+            --primary-dark: #7c3aed; 
+            --primary-light: #c4b5fd; 
+            --secondary: #0f172a; 
+            --accent: #06b6d4; 
+            --text-light: #e2e8f0; 
+            --text-muted: #94a3b8; 
+            --bg-dark: #0f172a; 
+            --bg-card: #1e293b; 
+        }
+        
+        /* CSS Variables Application */
+        .bg-primary { background-color: var(--primary); }
+        .bg-primary-dark { background-color: var(--primary-dark); }
+        .bg-primary-light { background-color: var(--primary-light); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-card { background-color: var(--bg-card); }
+        
+        .text-primary { color: var(--primary); }
+        .text-primary-dark { color: var(--primary-dark); }
+        .text-secondary { color: var(--secondary); }
+        .text-muted { color: var(--text-muted); }
+        
+        .border-primary { border-color: var(--primary); }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Advanced Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.7); }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Custom Shapes */
+        .custom-shape-divider-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        
+        .custom-shape-divider-top .shape-fill {
+            fill: var(--bg-dark);
+        }
+        
+        /* Advanced Card Styles */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateY(-5px);
+        }
+        
+        /* Gradient Borders */
+        .gradient-border {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 16px;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 18px;
+            z-index: -1;
+        }
+        
+        /* Text Glow */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .content-section p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        
+        /* Responsive behavior using CSS Grid */
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        /* For wider screens, create a two-column layout */
+        @media (min-width: 768px) {
+            .content-section {
+                grid-template-columns: 1fr 2fr;
+                gap: 2rem;
+            }
+            
+            .content-section h2 {
+                text-align: right;
+                padding-right: 2rem;
+                border-right: 2px solid var(--primary);
+            }
+        }
+        
+        /* Add a decorative element to headings */
+        .content-section h2 {
+            position: relative;
+        }
+        
+        .content-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        /* Use CSS to add icons before list items */
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-section li::before {
+            content: "✓ ";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* WhatsApp Button Styles */
+        #whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        
+        #whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+        
+        #whatsapp-button i {
+            color: white;
+            font-size: 30px;
+        }
+        
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* WhatsApp Tooltip */
+        #whatsapp-tooltip {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #075E54;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            white-space: nowrap;
+        }
+        
+        #whatsapp-tooltip:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 15px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #075E54 transparent transparent transparent;
+        }
+        
+        #whatsapp-button:hover + #whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* New styles for dark theme */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 4rem 0;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .value-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .contact-info-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-input {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="theme-dark-purple font-sans scroll-smooth">
+  
+    <!-- Navigation -->
+    <nav class="glass backdrop-blur-md shadow-lg sticky top-0 z-40 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-link text-white text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Trust Link</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-primary font-medium transition duration-300 relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="text-gray-300 hover:text-primary font-medium transition duration-300 relative group">
+                        About
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="text-gray-300 hover:text-primary font-medium transition duration-300 relative group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#values" class="text-gray-300 hover:text-primary font-medium transition duration-300 relative group">
+                        Values
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-300 hover:text-primary font-medium transition duration-300 relative group">
+                        Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-secondary py-4 px-4 absolute w-full shadow-lg">
+            <a href="#home" class="block py-3 text-gray-300 hover:text-primary transition border-b border-gray-800">Home</a>
+            <a href="#about" class="block py-3 text-gray-300 hover:text-primary transition border-b border-gray-800">About</a>
+            <a href="#services" class="block py-3 text-gray-300 hover:text-primary transition border-b border-gray-800">Services</a>
+            <a href="#values" class="block py-3 text-gray-300 hover:text-primary transition border-b border-gray-800">Values</a>
+            <a href="#contact" class="block py-3 text-gray-300 hover:text-primary transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20 md:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/10 animate-float"></div>
+        <div class="absolute top-1/4 right-20 w-16 h-16 rounded-full bg-white/10 animate-float delay-300"></div>
+        <div class="absolute bottom-20 left-1/4 w-12 h-12 rounded-full bg-white/10 animate-float delay-500"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in-up">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Building <span class="text-glow">Trust</span> in Real Estate</h1>
+                    <p class="text-xl mb-8 opacity-90">Trust Link is redefining real estate through transparency, integrity, and exceptional service.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="btn-primary px-8 py-4 rounded-xl font-semibold transition duration-300 animate-pulse-glow shadow-lg">
+                            <span class="flex items-center justify-center">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </button>
+                        <button class="btn-outline px-8 py-4 rounded-xl font-semibold transition duration-300">
+                            Our Values
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="glass rounded-3xl p-6 max-w-md animate-float">
+                            <div class="bg-card rounded-2xl shadow-xl p-6 mb-6 transform hover:-translate-y-2 transition duration-300">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-shield-alt text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white">Trust & Transparency</h3>
+                                </div>
+                                <p class="text-muted">Clear communication and honest dealings in every transaction</p>
+                            </div>
+                            <div class="bg-card rounded-2xl shadow-xl p-6 transform hover:-translate-y-2 transition duration-300">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-chart-line text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white">Industry Expertise</h3>
+                                </div>
+                                <p class="text-muted">Deep market knowledge with a focus on client success</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave Divider -->
+        <div class="custom-shape-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-secondary relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in-up">
+                <h2 class="text-4xl font-bold text-white mb-4">About Trust Link</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">We are a modern real estate consultancy focused on building lasting relationships through trust and exceptional service.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="gradient-border p-1 rounded-2xl">
+                    <div class="bg-card rounded-2xl p-8 h-full card-3d">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Integrity First</h3>
+                        <p class="text-muted text-center">We believe trust is earned through consistent ethical behavior and transparency in all our dealings.</p>
+                    </div>
+                </div>
+                
+                <div class="gradient-border p-1 rounded-2xl">
+                    <div class="bg-card rounded-2xl p-8 h-full card-3d">
+                        <div class="feature-icon">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Client Focused</h3>
+                        <p class="text-muted text-center">Your goals and satisfaction are at the center of everything we do, from consultation to completion.</p>
+                    </div>
+                </div>
+                
+                <div class="gradient-border p-1 rounded-2xl">
+                    <div class="bg-card rounded-2xl p-8 h-full card-3d">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Market Excellence</h3>
+                        <p class="text-muted text-center">Deep industry expertise and innovative approaches to deliver exceptional results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-secondary relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -translate-y-32 translate-x-32"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full translate-y-40 -translate-x-40"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 animate-fade-in-up">
+                <h2 class="text-4xl font-bold text-white mb-4">Our Services</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">Comprehensive real estate solutions tailored to your unique needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="service-card animate-fade-in-up">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Real Estate Consulting</h3>
+                    <p class="text-muted mb-4">Strategic advice for property investment and portfolio management.</p>
+                    <a href="#contact" class="inline-flex items-center text-primary font-semibold group">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card animate-fade-in-up delay-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-file-contract text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Transaction Management</h3>
+                    <p class="text-muted mb-4">Streamlined processes for smooth and efficient property transactions.</p>
+                    <a href="#contact" class="inline-flex items-center text-primary font-semibold group">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card animate-fade-in-up delay-200">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-pie text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Market Analysis</h3>
+                    <p class="text-muted mb-4">In-depth research and insights to inform your real estate decisions.</p>
+                    <a href="#contact" class="inline-flex items-center text-primary font-semibold group">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card animate-fade-in-up delay-300">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Investment Strategy</h3>
+                    <p class="text-muted mb-4">Customized approaches to maximize returns and minimize risk.</p>
+                    <a href="#contact" class="inline-flex items-center text-primary font-semibold group">
+                        Learn more
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center animate-fade-in-up">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" id="clients-count">0</div>
+                    <p class="text-lg opacity-90">Happy Clients</p>
+                </div>
+                
+                <div class="text-center animate-fade-in-up delay-100">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" id="projects-count">0</div>
+                    <p class="text-lg opacity-90">Projects Completed</p>
+                </div>
+                
+                <div class="text-center animate-fade-in-up delay-200">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" id="years-count">0</div>
+                    <p class="text-lg opacity-90">Years Experience</p>
+                </div>
+                
+                <div class="text-center animate-fade-in-up delay-300">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" id="partners-count">0</div>
+                    <p class="text-lg opacity-90">Trusted Partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="py-20 bg-secondary relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-20 bg-secondary transform -skew-y-2 -translate-y-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 animate-fade-in-up">
+                <h2 class="text-4xl font-bold text-white mb-4">Our Values</h2>
+                <p class="text-xl text-muted max-w-3xl mx-auto">The principles that guide everything we do at Trust Link</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="value-card animate-fade-in-up">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Trust</h3>
+                    <p class="text-muted">Building relationships on a foundation of reliability and integrity.</p>
+                </div>
+                
+                <div class="value-card animate-fade-in-up delay-100">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-eye text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Transparency</h3>
+                    <p class="text-muted">Clear communication and honest dealings in every interaction.</p>
+                </div>
+                
+                <div class="value-card animate-fade-in-up delay-200">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Excellence</h3>
+                    <p class="text-muted">Consistently delivering exceptional service and results.</p>
+                </div>
+                
+                <div class="value-card animate-fade-in-up delay-300">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Commitment</h3>
+                    <p class="text-muted">Dedicated to our clients' success and satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section class="content-section bg-secondary py-12">
+        <h2>About Trust Link & Co (Pvt) Ltd</h2>
+        <p>In today's fast-paced property market, finding a trusted partner to guide you through investments, sales, and development projects is essential. That's where <strong>Trust Link & Co (Pvt) Ltd</strong> steps in — a name built on reliability, transparency, and customer-first service.</p>
+        <p>Based in Lahore, Pakistan, Trust Link & Co (Pvt) Ltd is a private limited company specializing in real estate solutions, project marketing, and property consultancy. With years of experience and a growing presence across Pakistan and the UAE, our mission is to make property investment secure and profitable for every client.</p>
+    </section>
+
+    <section class="content-section bg-secondary py-12">
+        <h2>Our Services</h2>
+        <p>We provide a complete range of real estate solutions tailored to our clients' needs, including:</p>
+        <ul>
+            <li>Residential and Commercial Property Consultancy</li>
+            <li>Real Estate Marketing Campaigns for Housing Projects</li>
+            <li>Overseas Investment Opportunities</li>
+            <li>End-to-End Support, from Documentation to Handover</li>
+        </ul>
+    </section>
+
+    <section class="content-section bg-secondary py-12">
+        <h2>Why Choose Trust Link?</h2>
+        <p>We don't just sell property — we build long-term relationships. Here's why clients choose us:</p>
+        <ul>
+            <li><strong>Experience:</strong> A proven track record of handling projects with professionalism.</li>
+            <li><strong>Transparency:</strong> Clear communication, fair dealing, and legal compliance at every step.</li>
+            <li><strong>Global Outlook:</strong> Serving clients in Pakistan and abroad, with dedicated lines for UAE-based investors.</li>
+            <li><strong>Client-Centered:</strong> Personalized guidance designed to match your goals.</li>
+        </ul>
+    </section>
+
+    <section class="content-section bg-secondary py-12">
+        <h2>Featured Project Highlight</h2>
+        <p><em>Al-Takmeel Villas</em> – A premium housing initiative offering modern design, prime location, and world-class amenities. Trust Link is proud to be the marketing partner bringing this vision to reality.</p>
+    </section>
+
+    <section class="content-section bg-secondary py-12">
+        <h2>Our Commitment</h2>
+        <p>At Trust Link & Co, our motto is simple: <em>connecting trust with opportunity</em>. Whether you're looking to buy your first home, expand your portfolio, or explore overseas property markets, we are here to ensure your journey is smooth and rewarding.</p>
+    </section>
+
+    <section class="content-section bg-secondary py-12">
+        <h2>Connect With Us</h2>
+        <p>Looking for your next property investment? Connect with us today at <a href="https://www.trustlink.com.pk" target="_blank" class="text-primary hover:underline">www.trustlink.com.pk</a> or visit our <a href="https://www.facebook.com/trustlinkCoPvtLtd/" target="_blank" class="text-primary hover:underline">Facebook page</a> to stay updated on the latest projects and opportunities.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-4">Contact Us</h2>
+            <p class="text-xl text-center text-muted mb-12">Get in touch for consultations and inquiries</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="animate-slide-in-left">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Send us a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Full Name</label>
+                            <input type="text" id="name" class="form-input">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email" class="form-input">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-300 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="form-input"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="animate-slide-in-right">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="contact-info-card">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Phone</h4>
+                                    <p class="text-muted">+1 (555) 123-4567</p>
+                                    <p class="text-muted">+1 (555) 987-6543</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-card">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Email</h4>
+                                    <p class="text-muted">info@trustlink.com</p>
+                                    <p class="text-muted">consultation@trustlink.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-card">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Office Address</h4>
+                                    <p class="text-muted">123 Business District,</p>
+                                    <p class="text-muted">New York, NY 10001</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-white mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-link text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Trust Link</h3>
+                    </div>
+                    <p class="text-muted">Building trust and delivering excellence in real estate consulting and services.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-muted">
+                        <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2 text-muted">
+                        <li><a href="#" class="hover:text-primary transition">Consulting</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Transaction Management</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Market Analysis</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Investment Strategy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Newsletter</h4>
+                    <p class="text-muted mb-4">Subscribe for industry insights and updates</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="form-input rounded-r-none">
+                        <button class="btn-primary px-4 py-2 rounded-l-none transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-muted">
+                <p>© 2024 Trust Link Realty. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div id="whatsapp-button" title="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    <div id="whatsapp-tooltip">Contact us on WhatsApp</div>
+
+    <script>
+        // WhatsApp Button Functionality
+        document.getElementById('whatsapp-button').addEventListener('click', function() {
+            // Replace with your actual WhatsApp number (with country code, no + or spaces)
+            const whatsappNumber = '1234567890';
+            
+            // Replace with your pre-typed message
+            const message = 'Hello, I would like to know more about your services.';
+            
+            // Create the WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+        });
+            
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you soon.');
+                this.reset();
+            });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animated counter for stats
+        function animateCounter(elementId, finalValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            let startValue = 0;
+            const increment = finalValue / (duration / 16); // 60fps
+            
+            function updateCounter() {
+                startValue += increment;
+                if (startValue < finalValue) {
+                    element.textContent = Math.floor(startValue);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = finalValue;
+                }
+            }
+            
+            updateCounter();
+        }
+        
+        // Start counters when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('clients-count', 250);
+                    animateCounter('projects-count', 180);
+                    animateCounter('years-count', 12);
+                    animateCounter('partners-count', 50);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const statsSection = document.querySelector('.gradient-bg');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
