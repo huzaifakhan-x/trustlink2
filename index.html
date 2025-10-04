@@ -8,7 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
-
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/10/04/09/20251004094747-RHDN6373.js" defer></script>
     <style>
    :root {
     --primary: #8b5cf6;
@@ -276,9 +277,9 @@ body {
 /* WhatsApp Button Styles - Mobile Optimized */
 #whatsapp-button {
     position: fixed;
-    bottom: 16px;
+    bottom: 90px; /* increased so it's above Botpress */
     right: 16px;
-    width: 56px; /* Slightly smaller for mobile */
+    width: 56px;
     height: 56px;
     background-color: #25D366;
     border-radius: 50%;
@@ -318,13 +319,13 @@ body {
 /* WhatsApp Tooltip - Hidden on mobile by default */
 #whatsapp-tooltip {
     position: fixed;
-    bottom: 82px; /* Adjusted for smaller button */
+    bottom: 156px; /* button bottom (90px) + button height (56px) + margin */
     right: 16px;
     background-color: #075E54;
     color: white;
     padding: 6px 10px;
     border-radius: 6px;
-    font-size: 12px; /* Smaller font */
+    font-size: 12px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
@@ -1156,8 +1157,7 @@ body {
             </div>
         </div>
     </footer>
-    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/10/04/09/20251004094747-RHDN6373.js" defer></script>
+
     
     <!-- WhatsApp Button -->
     <div id="whatsapp-button" title="Contact us on WhatsApp">
