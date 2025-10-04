@@ -10,492 +10,670 @@
     
 
     <style>
-        :root {
-            --primary: #8b5cf6;
-            --primary-dark: #7c3aed;
-            --primary-light: #c4b5fd;
-            --secondary: #0f172a;
-            --accent: #06b6d4;
-            --text-light: #e2e8f0;
-            --text-muted: #94a3b8;
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-        
-        /* Theme Definitions */
-        .theme-dark-purple { 
-            --primary: #8b5cf6; 
-            --primary-dark: #7c3aed; 
-            --primary-light: #c4b5fd; 
-            --secondary: #0f172a; 
-            --accent: #06b6d4; 
-            --text-light: #e2e8f0; 
-            --text-muted: #94a3b8; 
-            --bg-dark: #0f172a; 
-            --bg-card: #1e293b; 
-        }
-        
-        /* CSS Variables Application */
-        .bg-primary { background-color: var(--primary); }
-        .bg-primary-dark { background-color: var(--primary-dark); }
-        .bg-primary-light { background-color: var(--primary-light); }
-        .bg-secondary { background-color: var(--secondary); }
-        .bg-card { background-color: var(--bg-card); }
-        
-        .text-primary { color: var(--primary); }
-        .text-primary-dark { color: var(--primary-dark); }
-        .text-secondary { color: var(--secondary); }
-        .text-muted { color: var(--text-muted); }
-        
-        .border-primary { border-color: var(--primary); }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* Advanced Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.7); }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        
-        .animate-slide-in-left {
-            animation: slideInLeft 0.8s ease-out;
-        }
-        
-        .animate-slide-in-right {
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        
-        /* Glassmorphism Effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Custom Shapes */
-        .custom-shape-divider-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-        
-        .custom-shape-divider-top svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 80px;
-        }
-        
-        .custom-shape-divider-top .shape-fill {
-            fill: var(--bg-dark);
-        }
-        
-        /* Advanced Card Styles */
-        .card-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-        }
-        
-        .card-3d:hover {
-            transform: rotateY(10deg) rotateX(5deg) translateY(-5px);
-        }
-        
-        /* Gradient Borders */
-        .gradient-border {
-            position: relative;
-            background: var(--bg-card);
-            border-radius: 16px;
-        }
-        
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            border-radius: 18px;
-            z-index: -1;
-        }
-        
-        /* Text Glow */
-        .text-glow {
-            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            transition: all 0.3s ease;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
-        
-        /* Content Sections */
-        .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        
-        .content-section h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 2rem;
-        }
-        
-        .content-section p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: var(--text-light);
-        }
-        
-        /* Responsive behavior using CSS Grid */
-        .content-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-        
-        /* For wider screens, create a two-column layout */
-        @media (min-width: 768px) {
-            .content-section {
-                grid-template-columns: 1fr 2fr;
-                gap: 2rem;
-            }
-            
-            .content-section h2 {
-                text-align: right;
-                padding-right: 2rem;
-                border-right: 2px solid var(--primary);
-            }
-        }
-        
-        /* Add a decorative element to headings */
-        .content-section h2 {
-            position: relative;
-        }
-        
-        .content-section h2::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        /* Use CSS to add icons before list items */
-        .content-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .content-section li::before {
-            content: "✓ ";
-            color: var(--primary);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        /* WhatsApp Button Styles */
-        #whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse-whatsapp 2s infinite;
-        }
-        
-        #whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-            animation: none;
-        }
-        
-        #whatsapp-button i {
-            color: white;
-            font-size: 30px;
-        }
-        
-        @keyframes pulse-whatsapp {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-        
-        /* WhatsApp Tooltip */
-        #whatsapp-tooltip {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background-color: #075E54;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 1000;
-            white-space: nowrap;
-        }
-        
-        #whatsapp-tooltip:after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            right: 15px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #075E54 transparent transparent transparent;
-        }
-        
-        #whatsapp-button:hover + #whatsapp-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* New styles for dark theme */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-        }
-        
-        .btn-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            margin: 4rem 0;
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-        }
-        
-        .stat-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .service-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            height: 100%;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary);
-        }
-        
-        .value-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary);
-        }
-        
-        .contact-info-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .contact-info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .form-input {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-        }
-        
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-card);
-            color: var(--text-light);
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
+   :root {
+    --primary: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --primary-light: #c4b5fd;
+    --secondary: #0f172a;
+    --accent: #06b6d4;
+    --text-light: #e2e8f0;
+    --text-muted: #94a3b8;
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+}
+
+/* Base Mobile Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Theme Definitions */
+.theme-dark-purple { 
+    --primary: #8b5cf6; 
+    --primary-dark: #7c3aed; 
+    --primary-light: #c4b5fd; 
+    --secondary: #0f172a; 
+    --accent: #06b6d4; 
+    --text-light: #e2e8f0; 
+    --text-muted: #94a3b8; 
+    --bg-dark: #0f172a; 
+    --bg-card: #1e293b; 
+}
+
+/* CSS Variables Application */
+.bg-primary { background-color: var(--primary); }
+.bg-primary-dark { background-color: var(--primary-dark); }
+.bg-primary-light { background-color: var(--primary-light); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-card { background-color: var(--bg-card); }
+
+.text-primary { color: var(--primary); }
+.text-primary-dark { color: var(--primary-dark); }
+.text-secondary { color: var(--secondary); }
+.text-muted { color: var(--text-muted); }
+
+.border-primary { border-color: var(--primary); }
+
+.gradient-bg {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Advanced Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.7); }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Shapes */
+.custom-shape-divider-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px; /* Reduced for mobile */
+}
+
+.custom-shape-divider-top .shape-fill {
+    fill: var(--bg-dark);
+}
+
+/* Advanced Card Styles */
+.card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+/* Disable 3D effect on mobile for better performance */
+@media (hover: hover) and (pointer: fine) {
+    .card-3d:hover {
+        transform: rotateY(10deg) rotateX(5deg) translateY(-5px);
+    }
+}
+
+/* Gradient Borders */
+.gradient-border {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 12px; /* Reduced for mobile */
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    border-radius: 14px; /* Adjusted for smaller border radius */
+    z-index: -1;
+}
+
+/* Text Glow */
+.text-glow {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px; /* Thinner on mobile */
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Content Sections - Mobile First */
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem; /* Reduced padding for mobile */
+    display: block; /* Stack by default on mobile */
+}
+
+.content-section h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem; /* Smaller on mobile */
+    text-align: left; /* Left align on mobile */
+    position: relative;
+}
+
+.content-section p {
+    line-height: 1.5; /* Tighter line height for mobile */
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Smaller base size */
+    color: var(--text-light);
+}
+
+/* Remove decorative elements on mobile for cleaner look */
+.content-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+}
+
+/* Use CSS to add icons before list items */
+.content-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-section li::before {
+    content: "✓ ";
+    color: var(--primary);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* WhatsApp Button Styles - Mobile Optimized */
+#whatsapp-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 56px; /* Slightly smaller for mobile */
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+#whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+#whatsapp-button i {
+    color: white;
+    font-size: 28px; /* Slightly smaller icon */
+}
+
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); /* Smaller pulse on mobile */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* WhatsApp Tooltip - Hidden on mobile by default */
+#whatsapp-tooltip {
+    position: fixed;
+    bottom: 82px; /* Adjusted for smaller button */
+    right: 16px;
+    background-color: #075E54;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px; /* Smaller font */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    white-space: nowrap;
+}
+
+#whatsapp-tooltip:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #075E54 transparent transparent transparent;
+}
+
+/* Only show tooltip on devices that support hover */
+@media (hover: hover) {
+    #whatsapp-button:hover + #whatsapp-tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Button Styles - Mobile Optimized */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    padding: 12px 24px; /* Comfortable touch target */
+    font-size: 16px; /* Minimum recommended touch size */
+    border-radius: 8px;
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 12px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 12px;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    margin: 2rem 0; /* Reduced margin on mobile */
+}
+
+.feature-icon {
+    width: 60px; /* Smaller on mobile */
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem; /* Reduced margin */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3); /* Reduced shadow */
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border-radius: 12px; /* Smaller radius */
+    padding: 1.5rem; /* Reduced padding */
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px); /* Smaller hover effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: auto; /* Auto height on mobile */
+    min-height: 200px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary);
+}
+
+.value-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+}
+
+.value-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary);
+}
+
+.contact-info-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-input {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-size: 16px; /* Prevents zoom on iOS */
+    margin-bottom: 1rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.social-icon {
+    width: 44px; /* Smaller on mobile */
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    margin: 0 8px 8px 0; /* Spacing for mobile */
+}
+
+.social-icon:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    .content-section {
+        padding: 2rem 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+    }
+    
+    .content-section h2 {
+        font-size: 2rem;
+        text-align: right;
+        padding-right: 2rem;
+        border-right: 2px solid var(--primary);
+    }
+    
+    .custom-shape-divider-top svg {
+        height: 80px;
+    }
+    
+    .btn-primary,
+    .btn-outline {
+        width: auto;
+        margin-bottom: 0;
+    }
+    
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .stat-card,
+    .service-card,
+    .value-card,
+    .contact-info-card {
+        padding: 2rem;
+        margin-bottom: 0;
+    }
+    
+    .section-divider {
+        margin: 4rem 0;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 8px;
+    }
+    
+    .gradient-border {
+        border-radius: 16px;
+    }
+    
+    .gradient-border::before {
+        border-radius: 18px;
+    }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+    .content-section {
+        padding: 3rem 2rem;
+    }
+    
+    .service-card {
+        height: 100%;
+        min-height: 280px;
+    }
+    
+    .stat-card:hover,
+    .service-card:hover,
+    .value-card:hover,
+    .contact-info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    #whatsapp-button {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    #whatsapp-button i {
+        font-size: 30px;
+    }
+    
+    #whatsapp-tooltip {
+        bottom: 90px;
+        right: 20px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Large Desktop Styles (1200px and up) */
+@media (min-width: 1200px) {
+    .content-section {
+        padding: 4rem 2rem;
+    }
+}
+
+/* High DPI Screen Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .gradient-text {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support (though already dark) */
+@media (prefers-color-scheme: dark) {
+    /* Already optimized for dark mode */
+}
+
+/* Orientation specific adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .content-section {
+        padding: 1rem;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    .content-section {
+        padding: 1rem 0.5rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.25rem;
+    }
+    
+    .btn-primary,
+    .btn-outline {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    #whatsapp-button {
+        width: 50px;
+        height: 50px;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    #whatsapp-button i {
+        font-size: 24px;
+    }
+}
     </style>
 </head>
 <body class="theme-dark-purple font-sans scroll-smooth">
